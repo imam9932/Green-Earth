@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Earth</title>
+  <link rel="shortcut icon" href="assets/about.png" type="image/x-icon">
+  <!-- daisyUI & tailwind link -->
+   <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body class="bg-[#CFF0DC50]">
+  <header>
+    <!-- nav section -->
+    <section class="bg-green-700 py-3 ">
+<nav class="flex flex-col md:flex-row space-y-2 md:justify-around items-center">
+  <p class="text-2xl text-white">Green Earth</p>
+  <ul class="flex gap-4">
+    <li class="text-white">About</li>
+    <li class="text-white">Gallery</li>
+    <li class="text-white">Plant a Tree</li>
+  </ul>
+  <button class="btn-primary bg-yellow-400 rounded-xl px-3 py-1 text-green-700">Plant a Tree</button>
+</nav>
+    </section>
+<!-- banner section -->
+ <section class="w-full bg-[#CFF0DC]">
+  <div class="flex flex-col md:flex-row justify-center items-center">
+    <img class="md:w-1/3 hidden md:block  " src="assets/hero-leaf1.png" alt="left leaf">
+    <div  class="md:w-1/3 text-center space-y-2  ">
+      <h1 class="md:text-3xl text-2xl mt-2 font-bold">Plant a Tree, Grow a Future</h1>
+      <p class="text-sm text-gray-500">Join our mission to plant 1 million trees and make the Earth greener for future
+generations.</p>
+<button  class=" bg-yellow-400 rounded-xl px-3 py-1 text-green-700">Get Involved</button>
+    </div>
+    <img class="md:w-1/3 " src="assets/hero-leaf2.png" alt="right leaf">
+  </div>
+ </section>
+  </header>
+<!-- choose your trees section -->
+  <section class="mt-10 w-11/12 mx-auto">
+<div class="text-center">
+  <h1 class="text-2xl font-bold mb-10 ">Choose Your Trees</h1>
+</div>
+<div class="flex gap-4">
+  <div id="categories-container" class="w-2/11">
+    </div>
+    <div id="cart-container" class="w-7/11 grid grid-cols-3 gap-3">
+      </div>
+      <div class="w-2/11"> cart</div>
+</div>
+  </section>
+  <script src="index.js"></script>
+</body>
+</html>
