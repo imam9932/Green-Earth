@@ -12,18 +12,47 @@
   categoriesContainer.innerHTML='';
   categories.forEach(category=>{
      categoriesContainer.innerHTML +=`
-     <ul id='category-ul' class='space-y-8 text-center'>
-      <li id='category-id'class='font-semibold hover:bg-green-700 hover:text-white hover:rounded-sm my-4'>${category.category_name}</li>
+     <ul  class='space-y-8 text-center'>
+      <li class='font-semibold hover:bg-green-700 hover:text-white hover:rounded-sm my-4'>${category.category_name}</li>
     </ul>
      `
   })
-//   categoriesContainer.addEventListener('click',(e)=>{
-// const allLi=document.getElementById("category-ul");
-//  console.log(allLi);
+  categoriesContainer.addEventListener('click',(e)=>{
+const allLi=document.querySelectorAll('li')
+allLi.forEach(li=>{
+  li.classList.remove('bg-green-700')
+})
+if(e.target.localName==="li"){
+  console.log(e);
+  e.target.classList.add('bg-green-700')
+  loadPlantByCategory(e.target.category);
+}
+ 
+  });
+ };
+const loadPlantByCategory=(category)=>{
+  // console.log(categoryId);
+  fetch(`https://openapi.programming-hero.com/api/category/${category}`)
+  .then((res)=>res.json())
+  .then((data)=>{
+    // console.log(data)
+  })
+//   .then((res)=>res.json())
+//   .then((data)=>{
+//     displayPlantByCategory(data.plants);
 //   })
+// }
+// const displayPlantByCategory=(plants)=>{
+// categoriesContainer.addeventlistener('click',()=>{
+
+// })
+}
 
 
- }
+
+// loadPlantByCategory();
+
+
 
  const loadAllPlants=()=>{
   fetch('https://openapi.programming-hero.com/api/plants')
@@ -54,21 +83,6 @@ const displayAllPlants=(plants)=>{
 
 }
 
-// const loadPlantByCategory=(Id)=>{
-//   fetch(`https://openapi.programming-hero.com/api/category/${Id}`)
-//   .then((res)=>res.json())
-//   .then((data)=>{
-//     displayPlantByCategory(data.plants);
-//   })
-// }
-// const displayPlantByCategory=(plants)=>{
-// categoriesContainer.addeventlistener('click',()=>{
 
-// })
-// }
-
-
-
-// loadPlantByCategory();
 loadAllPlants();
  loadCategories();
