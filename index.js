@@ -12,7 +12,7 @@
   categoriesContainer.innerHTML='';
   categories.forEach(category=>{
      categoriesContainer.innerHTML +=`
-     <ul  class='space-y-8 text-center'>
+     <ul id='category_id' class='space-y-8 text-center'>
       <li class='font-semibold hover:bg-green-700 hover:text-white hover:rounded-sm my-4'>${category.category_name}</li>
     </ul>
      `
@@ -23,19 +23,19 @@ allLi.forEach(li=>{
   li.classList.remove('bg-green-700')
 })
 if(e.target.localName==="li"){
-  console.log(e);
+  // console.log(e.target);
   e.target.classList.add('bg-green-700')
-  loadPlantByCategory(e.target.category);
+  loadPlantByCategory(e.target);
 }
  
   });
  };
-const loadPlantByCategory=(category)=>{
+const loadPlantByCategory=(target)=>{
   // console.log(categoryId);
-  fetch(`https://openapi.programming-hero.com/api/category/${category}`)
+  fetch(`https://openapi.programming-hero.com/api/category/category_${id}`)
   .then((res)=>res.json())
   .then((data)=>{
-    // console.log(data)
+    console.log(data)
   })
 //   .then((res)=>res.json())
 //   .then((data)=>{
@@ -65,8 +65,9 @@ const displayAllPlants=(plants)=>{
   const cartContainer=document.getElementById('cart-container');
   cartContainer.innerHTML='';
   plants.forEach(plant=>{
+    
     cartContainer.innerHTML+=`
-    <div class="bg-white rounded-sm p-2 space-y-2 h-auto overflow-hidden">
+    <div id='${plant.id}' class="bg-white rounded-sm p-2 space-y-2 h-auto overflow-hidden">
         <img class='rounded-lg w-full h-48 object-cover object-top block'src="${plant.image}" alt="fruits image">
         <h3 class="text-lg font-semibold">${plant.name}</h3>
         <p class="text-xs text-gray-500">${plant.description}</p>
@@ -74,7 +75,7 @@ const displayAllPlants=(plants)=>{
           <button class="bg-[#CFF0DC] px-3 text-green-700 rounded-full">${plant.category}</button>
           <p class="font-bold text-xl">${plant.price}</p>
         </div>
-        <button class="bg-green-700 text-sm py-1 mt-2 text-center w-full rounded-full text-white">Add to Cart</button>
+        <button id='btn-add-cart' class="bg-green-700 text-sm py-1 mt-2 text-center w-full rounded-full text-white">Add to Cart</button>
 
       </div>
     
@@ -82,7 +83,51 @@ const displayAllPlants=(plants)=>{
   })
 
 }
+let addToCarts=[];
+const cartContainer=document.getElementById('cart-container').addEventListener('click',(e)=>{
+ if(e.target.innerText==='Add to Cart'){
+handleAddToCart(e);
+}
+})
+const handleAddToCart=(e)=>{
+const plantName=e.target.parentNode.children[1].innerText
+const price=e.target.parentNode.children[3].children[1].innerText;
+const id=e.target.parentNode.id;
+ 
+addToCarts.push({
+  plantName:plantName,
+  price:price,
+  id:id,
 
+});
+displayAddToCart(addToCarts)
+
+};
+
+const displayAddToCart=(addToCarts)=>{
+ const addToCartContainer=document.getElementById("add-to-cart-container")
+ addToCartContainer.innerHTML='';
+addToCarts.forEach(addToCart=>{
+  addToCartContainer.innerHTML+=`
+  <div class="bg-gray-300 rounded-sm p-2 mt-2 flex justify-between items-center">
+  <div>
+  <h1 class='font-bold text-green-600'>${addToCart.plantName}</h1>
+   <h3 class='text-green-600'> <span class='font-semibold'>Tk : </span> ${addToCart.price}</h3>
+  </div>
+  <div onclick='handleDeleteAddToCart('${addToCart.id}')' class='p-2 bg-white rounded-lg hover:bg-green-500'>
+  <h3 class='text-red-700 font-bold text-2xl'>x</h3>
+  </div>
+  </div>
+  `
+})
+}
+const handleDeleteAddToCart=(addToCartId)=>{
+  const filteredAddToCarts=addToCarts.filter(addToCart=>addToCart.id!==addToCartId)
+addToCarts=filteredAddToCarts
+displayAddToCart(addToCarts);
+
+
+}
 
 loadAllPlants();
  loadCategories();
