@@ -100,7 +100,7 @@ Ans:In ES6 arrow function is use like this : =()=>{};
 Ans:Destructuring assignment is a syntax that lets you unpack values from arrays or objects into distinct variables in a clean, concise way.
 
 #### 5) Explain template literals in ES6. How are they different from string concatenation?
-Ans:Template string is use by (``) this quotation.We can write lot of things into this like div,id name,object name,array name etc.When we use string concatenation we need to use different variable declare and then concate.but template string can use different variable name in one div.
+Ans:Template string is use by (``) this quotation.We can write lot of things into this like div,id name,object name,array name,function etc.When we use string concatenation we need to use different variable declare and then concate.but template string can use different variable name in one div.
 
 ## ⚙️ Functionalities 
 
