@@ -82,14 +82,25 @@ https://openapi.programming-hero.com/api/plant/1
 
 
 #### 1) What is the difference between var, let, and const?
+Ans:var,let & const all of these are use as a variable.But 
+1- while using var you can't change variable value & before declaring value you can't use variable.
+2- while using let you can change variable value & can use the value before declaring.
+3- while using const you can't use the value.
 
 #### 2) What is the difference between map(), forEach(), and filter()? 
+Ans:1-By using map() we can create new array by condition without change original array.
+    2-forEach is a loop.when there is an array we can use all of the element one by one by using forEach().
+    3-By using filter() we can filtering something from an array/object.we also can use condition for use filter()
 
 #### 3) What are arrow functions in ES6?
+Ans:In ES6 arrow function is use like this : =()=>{};
+   It is user friendly than traditional function.We don't need write function and we can also declare function without parameter.
 
 #### 4) How does destructuring assignment work in ES6?
+Ans:Destructuring assignment is a syntax that lets you unpack values from arrays or objects into distinct variables in a clean, concise way.
 
 #### 5) Explain template literals in ES6. How are they different from string concatenation?
+Ans:Template string is use by (``) this quotation.We can write lot of things into this like div,id name,object name,array name etc.When we use string concatenation we need to use different variable declare and then concate.but template string can use different variable name in one div.
 
 ## ⚙️ Functionalities 
 

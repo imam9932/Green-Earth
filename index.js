@@ -90,7 +90,7 @@ const displayAllPlants=(plants)=>{
         <p class="text-xs text-gray-500">${plant.description}</p>
         <div class="flex justify-between">
           <button class="bg-[#CFF0DC] px-3 text-green-700 rounded-full">${plant.category}</button>
-          <p class="font-bold text-xl"> ${plant.price}</p>
+          <p class="font-bold text-xl">Tk ${plant.price}</p>
         </div>
         <button id='btn-add-cart' class="bg-green-700 text-sm py-1 mt-2 text-center w-full rounded-full text-white">Add to Cart</button>
 
@@ -139,9 +139,7 @@ addToCarts.forEach(addToCart=>{
   </div>
   </div>
   `
-  //  document.getElementById('btn-add-cart').addEventListener('click',()=>{
-    // const plantName=`${plant.name}`
-    // const plantPrice=`${plant.price}`
+   
 
     const totalPrice=document.getElementById('plant-price')
     console.log(totalPrice);
